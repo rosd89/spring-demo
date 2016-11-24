@@ -12,7 +12,7 @@ import static java.util.Objects.isNull;
 @Service
 public class MemberService {
 
-    private HashMap<String, Member> members = new HashMap<String, Member>() {
+    private static HashMap<String, Member> members = new HashMap<String, Member>() {
         {
             put("attdro", new Member("attdro", "rosd0000@gmail.com", "sam"));
         }
@@ -27,6 +27,7 @@ public class MemberService {
         Member m = members.get(memberId);
         if (isNull(m)) return null;
 
+        m.setImagePath(null);
         return m;
     }
 
@@ -48,5 +49,16 @@ public class MemberService {
 
         members.remove(memberId);
         return true;
+    }
+
+    public boolean updateUserImg(String userId, String userImgUrl) {
+        if(userImgUrl != null) {
+            Member m = members.get(userId);
+            m.setImagePath(userImgUrl);
+
+            members.put(userId, m);
+            return true;
+        }
+        return false;
     }
 }

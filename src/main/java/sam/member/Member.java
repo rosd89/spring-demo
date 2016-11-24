@@ -5,17 +5,14 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 /**
  * Created by sam on 2016. 11. 25..
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "member")
-@XmlType(name = "", propOrder = {"id", "email", "name"})
+@XmlType(name = "", propOrder = {"id", "email", "name", "imagePath"})
 public class Member {
 
     public Member(){}
@@ -42,4 +39,7 @@ public class Member {
     @Setter
     private String name;
 
+    @Getter
+    @Setter
+    private String imagePath;
 }
