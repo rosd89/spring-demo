@@ -1,4 +1,4 @@
-package sam.member.model;
+package sam.member;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -16,11 +16,11 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "member")
 @XmlType(name = "", propOrder = {"id", "email", "name"})
-public class MemberXml{
+public class Member {
 
-    public MemberXml(){}
+    public Member(){}
 
-    public MemberXml(String id, String email, String name){
+    public Member(String id, String email, String name){
         this.id = id;
         this.email = email;
         this.name = name;

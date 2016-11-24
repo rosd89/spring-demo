@@ -2,11 +2,8 @@ package sam.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import sam.member.model.Member;
-import sam.member.model.MemberXml;
 
 import javax.validation.Valid;
-import java.util.HashMap;
 
 /**
  * Created by sam on 2016. 11. 24..
@@ -31,8 +28,8 @@ public class MemberController {
      * @return
      */
     @RequestMapping(value = "/{memberId}", method = RequestMethod.GET, headers = "Accept=text/xml")
-    public MemberXml findOneXml(@PathVariable("memberId") String memberId) {
-        return memberService.findOneXml(memberId);
+    public Member findOneXml(@PathVariable("memberId") String memberId) {
+        return memberService.findOne(memberId);
     }
 
     /**
@@ -43,11 +40,8 @@ public class MemberController {
      */
     @RequestMapping(value = "/{memberId}", method = RequestMethod.GET, headers = "Accept=application/json")
     @ResponseBody
-    public MemberXml findOneJson(@PathVariable("memberId") String memberId) {
-
-        MemberXml member = memberService.findOne(memberId);
-
-        return member;
+    public Member findOneJson(@PathVariable("memberId") String memberId) {
+        return memberService.findOne(memberId);
     }
 
     @RequestMapping(method = RequestMethod.PUT)
