@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>에코</title>
+    <script type="text/javascript" src="js/jQuery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sendBtn').click(function () {
+               sendMessage();
+            });
+        });
+
+        var websocket;
+        function sendMessage(){
+            websocket = new WebSocket('ws://localhost:8080/echo-ws');
+            websocket.onmessage = onMessage;
+            websocket.onclose = onClose;
+            websocket.onopen = function () {
+                websocket.send($('#message').val());
+            };
+        }
+
+        function onMessage(evt) {
+            var data = evt.data;
+            alert('서버에서 받은 데이터 = ' + data);
+            websocket.close();
+        }
+
+        function onClose(evt) {
+            alert('연결 끊김');
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="message">
+    <input type="button" id="sendBtn" value="전송">
+</body>
+</html>

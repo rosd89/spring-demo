@@ -56,14 +56,4 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>spring</servlet-name>
-        <url-pattern>*.xml</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>spring</servlet-name>
-        <url-pattern>*.json</url-pattern>
-    </servlet-mapping>
-
 </web-app>

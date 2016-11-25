@@ -1,5 +1,6 @@
 package sam.member;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,6 +14,7 @@ import javax.xml.bind.annotation.*;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "member")
 @XmlType(name = "", propOrder = {"id", "email", "name", "imagePath"})
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Member {
 
     public Member(){}

@@ -14,10 +14,17 @@
         <java.version>1.8</java.version>
         <default.encoding>UTF-8</default.encoding>
         <spring.version>4.1.6.RELEASE</spring.version>
-        <jackson.version>2.4.1</jackson.version>
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- SPRING LIB -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -42,6 +49,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-websocket</artifactId>
             <version>${spring.version}</version>
         </dependency>
 
